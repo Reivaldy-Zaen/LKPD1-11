@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pendidikan</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="" name="status">Status ayah*</label><br>
+
+        <input type="radio" name="status" id="hidup" value="hidup" onclick="changeLabel(this)">
+        <label for="hidup">masih hidup</label><br>
+
+        <input type="radio" name="status" id="meninggal" value="meninggal" onclick="changeLabel(this)">
+        <label for="meninggal">sudah meninggal</label><br>
+
+        <input type="radio" name="status" id="tidak-diketahui" value="tidak-diketahui" onclick="changeLabel(this)">
+        <label for="tidak-diketahui">tidak diketahui</label><br><br>
+      
+        <div id="delete-all">
+        <label for="" name="Pendidikan">Pendidikan ayah*</label>
+        <br>
+        <select name="Pendidikan" onchange="changeLabel(this)">
+            <option selected disabled hidden>Pilih</option>
+            <option value="">SD</option>
+            <option value="">SMA</option>
+            <option value="">SMP</option>
+            <option value="">SMK</option>
+        </select><br>
+
+        <label for="" name="Pendidikan">Pekerjaan ayah*</label>
+        <br>
+        <select name="Pendidikan" onchange="changeLabel(this)">
+            <option selected disabled hidden>Pilih</option>
+            <option value="">pegawai</option>
+            <option value="">pilot</option>
+            <option value="">supir</option>
+            <option value="">pemain</option>
+        </select><br>
+
+        <label for="" name="Pendidikan">Deskripsi pekerjaan ayah*</label><br>
+        <input type="text"><br>
+        <label for="" name="penghasilan" id="penghasilan">Total penghasilan ayah perbulan</label><br>
+        <input type="text"><br>
+        <label for="" name="detail" id="detail">Detail ayah bekerja,berapa lama ayah bekerja</label><br>
+        <input type="text">
+    </div>
+    </form>
+
+
+
+    <script>
+        function changeLabel(e) {
+            if (e.value == "meninggal") {
+                document.getElementById("detail").innerHTML = `
+                    <label for="detail">Pekerjaan ayah semasa hidup</label>`;
+            } else{
+                document.getElementById('detail').innerHTML = `
+                 <label for="detail">Detail ayah bekerja,berapa lama ayah bekerja</label>`;
+            } ;
+            
+            
+            if (e.value == "tidak-diketahui"){
+                document.getElementById('delete-all').style.display="none";
+            } else {
+                document.getElementById('delete-all').style.display="block";
+            };
+        }
+    </script>
+</body>
+
+</html>
